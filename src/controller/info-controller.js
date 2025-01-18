@@ -4,9 +4,8 @@ const info = (req , res)=>{
     success : true,
     msg : "server is live",
     error : {},
-    data : {}
+    data : info
   });
 };
 
-module.exports = 
-   info;
+module.exports = info
