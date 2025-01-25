@@ -13,12 +13,12 @@ class crudRepository {
 
 async destroy(data){
   try {
-    await this.model.destroy({
+    const response = await this.model.destroy({
         where : {
           id : data
         }
     });
-    return true;
+    return response;
   } catch (error) {
     Logger.error("something went wrong in the crud Repo : destroy");
     throw error;
