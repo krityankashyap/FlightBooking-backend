@@ -31,9 +31,22 @@ async function getAirplane(){
     
     throw new Apperror('Cannot fetch data of all airplanes' , StatusCodes.INTERNAL_SERVER_ERROR );
   }
+};
+
+async function getAirplaneById(id){
+  try {
+    const airplanes = await airplaneRepository.get(id);
+    return airplanes;
+  } catch (error) {
+    if(error.StatusCodes == StatusCodes.NOT_FOUND){
+      throw new Apperror("No flights are available for this id" , error.StatusCodes );
+    }
+  throw new Apperror('Cannot fetch data of all airplanes' , StatusCodes.INTERNAL_SERVER_ERROR );
+  }
 }
 
 module.exports = {
   createAirplane,
-  getAirplane
+  getAirplane,
+  getAirplaneById
 }
