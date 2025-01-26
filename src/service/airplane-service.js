@@ -50,6 +50,9 @@ async function destroyAirplane(id){
     const response = await airplaneRepository.destroy(id);
     return response;
   } catch (error) {
+    if(error.StatusCodes == StatusCodes.NOT_FOUND){
+      throw new Apperror("The airplane u req for not present" , error.StatusCodes );
+    }
   throw new Apperror('Cannot fetch data of all airplanes' , StatusCodes.INTERNAL_SERVER_ERROR );
   }
 }

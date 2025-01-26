@@ -17,7 +17,10 @@ async destroy(data){
     const response = await this.model.destroy({
         where : {
           id : data
-         } })
+         } });
+    if(!response) {
+      throw new Apperror("Not able to find resource" , StatusCodes.NOT_FOUND);
+    }     
     return response;
   
 }
