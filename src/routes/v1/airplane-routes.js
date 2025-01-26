@@ -9,5 +9,7 @@ router.get('/' , AirplaneController.getAirplanes);
 
 router.get('/:id' , AirplaneController.getAirplaneById);
 
+router.delete('/:id' , AirplaneController.destroyAirplane);
+
 
 module.exports = router;
