@@ -38,8 +38,8 @@ async function getAirplaneById(id){
     const airplanes = await airplaneRepository.get(id);
     return airplanes;
   } catch (error) {
-    if(error.StatusCodes == StatusCodes.NOT_FOUND){
-      throw new Apperror("No flights are available for this id" , error.StatusCodes );
+    if(error.statusCode == StatusCodes.NOT_FOUND){
+      throw new Apperror("No flights are available for this id" , error.statusCodes );
     }
   throw new Apperror('Cannot fetch data of all airplanes' , StatusCodes.INTERNAL_SERVER_ERROR );
   }
@@ -50,8 +50,8 @@ async function destroyAirplane(id){
     const response = await airplaneRepository.destroy(id);
     return response;
   } catch (error) {
-    if(error.StatusCodes == StatusCodes.NOT_FOUND){
-      throw new Apperror("The airplane u req for not present" , error.StatusCodes );
+    if(error.statusCode == StatusCodes.NOT_FOUND){
+      throw new Apperror("The airplane u req for not present" , error.statusCodes );
     }
   throw new Apperror('Cannot fetch data of all airplanes' , StatusCodes.INTERNAL_SERVER_ERROR );
   }
