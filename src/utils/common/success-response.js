@@ -6,4 +6,6 @@ const success = {
   error : {},
 };
 
-module.exports = success;
+module.exports = {
+success
+}

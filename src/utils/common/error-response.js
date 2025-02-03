@@ -6,4 +6,6 @@ const error = {
   error : {},
 };
 
-module.exports = error;
+module.exports = {
+  error
+}
